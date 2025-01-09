@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+    .loading {
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Sidebar -->
+        <aside class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+            <div class="h-full px-3 py-4 overflow-y-auto bg-white border-r">
+                <h2 class="text-xl font-bold mb-6 px-2">Social Analytics</h2>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-speedometer2 mr-3"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-graph-up mr-3"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="audience.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-people mr-3"></i>
+                            <span>Audience</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="competitors.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-bar-chart mr-3"></i>
+                            <span>Competitors</span>
+                        </a>
+                    </li>
+                        <li>
+                            <a href="profile.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                                <img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/50/user-male-circle--v1.png" alt="user-male-circle--v1" class="mr-3">
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="export-data.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                                <img width="20" height="20" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" class="mr-3"/>
+                                <span>Export Data</span>
+                            </a>
+                        </li>
+                <li>
+                    <a href="manage-profile.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                        <i class="bi bi-person-circle mr-3"></i>
+                        <span>Manage Profile</span>
+                    </a>
+                </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="p-4 sm:ml-64">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">Analytics Overview</h1>
+                <div class="flex gap-2">
+                    <button onclick="location.href='export-data.html'" class="px-4 py-2 bg-white border rounded-lg hover:bg-gray-50">
+                        <i class="bi bi-download mr-2"></i>Export
+                    </button>
+                    <button onclick="location.href='profile.html'" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        <i class="bi bi-plus-lg mr-2"></i>Add Account
+                    </button>
+                    </div>
+                    </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white p-4 rounded-lg border" data-stat="engagement">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Total Engagement</span>
+                        <i class="bi bi-hand-thumbs-up text-blue-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold" data-stat="engagement">24.5K</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 12% vs last month</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Followers</span>
+                        <i class="bi bi-people text-purple-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold" data-stat="followers">12.8K</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 8% vs last month</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Posts</span>
+                        <i class="bi bi-grid text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold" data-stat="posts">156</h3>
+                    <p class="text-red-500 text-sm"><i class="bi bi-arrow-down"></i> 3% vs last month</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Engagement Rate</span>
+                        <i class="bi bi-graph-up text-green-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold" data-stat="rate">5.2%</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 1.5% vs last month</p>
+                </div>
+            </div>
+
+            <!-- नया GPT इंसाइट्स सेक्शन -->
+            <div class="bg-white p-4 rounded-lg border mb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">AI Insights</h3>
+                    <button id="refreshInsights" class="text-blue-600 hover:text-blue-700">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+                <div id="insightsContainer" class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <i class="bi bi-lightbulb text-yellow-500"></i>
+                        <p class="text-gray-600">Loading insights...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Content Performance Analysis</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Engagement Trends</h3>
+                    <canvas id="engagementChart"></canvas>
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize charts
+        const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+
+        // Sample data for engagement chart
+        new Chart(engagementCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Engagement',
+                    data: [12000, 15000, 18000, 16000, 22000, 24500],
+                    borderColor: 'rgb(59, 130, 246)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Sample data for performance chart
+        new Chart(performanceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Carousel', 'Static', 'Video', 'Reels'],
+                datasets: [{
+                    label: 'Average Engagement',
+                    data: [2400, 1800, 2100, 3600],
+                    backgroundColor: 'rgb(59, 130, 246)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Sample posts data
+        const posts = [
+            { content: 'Summer Collection Launch', type: 'Carousel', likes: 1200, comments: 89, shares: 45, date: '2023-12-20' },
+            { content: 'Product Showcase', type: 'Static', likes: 850, comments: 56, shares: 23, date: '2023-12-19' },
+            { content: 'Behind the Scenes', type: 'Video', likes: 2300, comments: 167, shares: 89, date: '2023-12-18' },
+            { content: 'Customer Story', type: 'Reels', likes: 3100, comments: 234, shares: 156, date: '2023-12-17' },
+        ];
+
+        // Populate posts table
+        const postsTableBody = document.getElementById('postsTableBody');
+        posts.forEach(post => {
+            const row = document.createElement('tr');
+            row.className = 'bg-white border-b hover:bg-gray-50';
+            row.innerHTML = `
+                <td class="px-6 py-4 font-medium text-gray-900">${post.content}</td>
+                <td class="px-6 py-4">${post.type}</td>
+                <td class="px-6 py-4">${post.likes}</td>
+                <td class="px-6 py-4">${post.comments}</td>
+                <td class="px-6 py-4">${post.shares}</td>
+                <td class="px-6 py-4">${post.date}</td>
+            `;
+            postsTableBody.appendChild(row);
+        });
+
+        // Sample top posts data
+        const topPosts = [
+            { content: 'Holiday Sale', type: 'Video', likes: 4500, comments: 300, shares: 150, date: '2023-12-15' },
+            { content: 'New Product Launch', type: 'Static', likes: 3200, comments: 210, shares: 120, date: '2023-12-14' },
+        ];
+
+        // Populate top posts table
+        const topPostsTableBody = document.getElementById('topPostsTableBody');
+        topPosts.forEach(post => {
+            const row = document.createElement('tr');
+            row.className = 'bg-white border-b hover:bg-gray-50';
+            row.innerHTML = `
+                <td class="px-6 py-4 font-medium text-gray-900">${post.content}</td>
+                <td class="px-6 py-4">${post.type}</td>
+                <td class="px-6 py-4">${post.likes}</td>
+                <td class="px-6 py-4">${post.comments}</td>
+                <td class="px-6 py-4">${post.shares}</td>
+                <td class="px-6 py-4">${post.date}</td>
+            `;
+            topPostsTableBody.appendChild(row);
+        });
+
+        // DataStax Astra DB कनेक्शन
+        const astraConfig = {
+            endpoint: 'YOUR_ASTRA_ENDPOINT',
+            token: 'YOUR_ASTRA_TOKEN'
+        };
+
+        // Langflow इंटीग्रेशन
+        const langflowConfig = {
+            endpoint: 'YOUR_LANGFLOW_ENDPOINT',
+            apiKey: 'YOUR_LANGFLOW_API_KEY'
+        };
+
+        // नया फंक्शन: GPT इंसाइट्स फेच करने के लिए
+        async function fetchGPTInsights(data) {
+            try {
+                const response = await fetch(`${langflowConfig.endpoint}/analyze`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${langflowConfig.apiKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ data })
+                });
+                
+                const insights = await response.json();
+                updateInsightsUI(insights);
+            } catch (error) {
+                console.error('GPT इंसाइट्स फेच करने में त्रुटि:', error);
+            }
+        }
+
+        // नया फंक्शन: इंसाइट्स UI अपडेट करने के लिए
+        function updateInsightsUI(insights) {
+            const container = document.getElementById('insightsContainer');
+            container.innerHTML = insights.map(insight => `
+                <div class="flex items-start gap-3">
+                    <i class="bi bi-lightbulb text-yellow-500"></i>
+                    <p class="text-gray-600">${insight}</p>
+                </div>
+            `).join('');
+        }
+
+        // मौजूदा fetchAnalytics फंक्शन को अपडेट करें
+        async function fetchAnalytics() {
+            try {
+                const response = await fetch(`${astraConfig.endpoint}/analytics`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${astraConfig.token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            SELECT post_type, 
+                                   AVG(engagement_rate) as avg_engagement,
+                                   COUNT(*) as post_count
+                            FROM analytics
+                            GROUP BY post_type
+                        `
+                    })
+                });
+                
+                const data = await response.json();
+                updateDashboardData(data);
+                fetchGPTInsights(data);
+            } catch (error) {
+                console.error('एनालिटिक्स फेच करने में त्रुटि:', error);
+                showError('डेटा लोड करने में समस्या हुई');
+            }
+        }
+
+        // डैशबोर्ड डेटा अपडेट करने का नया फंक्शन
+        function updateDashboardData(data) {
+            // स्टैट्स कार्ड्स अपडेट करें
+            document.querySelector('[data-stat="engagement"] .text-2xl').textContent = 
+                formatNumber(data.totalEngagement);
+            document.querySelector('[data-stat="followers"] .text-2xl').textContent = 
+                formatNumber(data.followers);
+            document.querySelector('[data-stat="posts"] .text-2xl').textContent = 
+                formatNumber(data.totalPosts);
+            document.querySelector('[data-stat="rate"] .text-2xl').textContent = 
+                data.engagementRate + '%';
+
+            // चार्ट्स अपडेट करें
+            updateEngagementChart(data.engagementHistory);
+            updatePerformanceChart(data.postPerformance);
+
+            // टेबल्स अपडेट करें
+            updatePostsTable(data.recentPosts);
+            updateTopPostsTable(data.topPosts);
+        }
+
+        // नंबर फॉर्मेटिंग हेल्पर फंक्शन
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num/1000000).toFixed(1) + 'M';
+            }
+            if (num >= 1000) {
+                return (num/1000).toFixed(1) + 'K';
+            }
+            return num.toString();
+        }
+
+        // त्रुटि दिखाने का फंक्शन
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative';
+            errorDiv.role = 'alert';
+            errorDiv.innerHTML = `
+                <strong class="font-bold">त्रुटि!</strong>
+                <span class="block sm:inline">${message}</span>
+            `;
+            
+            document.querySelector('main').prepend(errorDiv);
+            
+            // 5 सेकंड बाद त्रुटि संदेश हटा दें
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAnalytics();
+        });
+
+        
+    </script>
+   
+    
+</body>
+</html>

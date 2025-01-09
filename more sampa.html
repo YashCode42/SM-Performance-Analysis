@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+    .loading {
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Sidebar -->
+        <aside class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+            <div class="h-full px-3 py-4 overflow-y-auto bg-white border-r">
+                <h2 class="text-xl font-bold mb-6 px-2">Social Analytics</h2>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-speedometer2 mr-3"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-graph-up mr-3"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="audience.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-people mr-3"></i>
+                            <span>Audience</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="competitors.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                            <i class="bi bi-bar-chart mr-3"></i>
+                            <span>Competitors</span>
+                        </a>
+                    </li>
+                        <li>
+                            <a href="profile.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                                <img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/50/user-male-circle--v1.png" alt="user-male-circle--v1" class="mr-3">
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="settings.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group active bg-gray-100">
+                                <img width="20" height="20" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" class="mr-3"/>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                  
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="p-4 sm:ml-64">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">Analytics Overview</h1>
+                <div class="flex gap-2">
+                    <button class="px-4 py-2 bg-white border rounded-lg hover:bg-gray-50">
+                        <i class="bi bi-download mr-2"></i>Export
+                    </button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        <i class="bi bi-plus-lg mr-2"></i>Add Account
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white p-4 rounded-lg border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Total Engagement</span>
+                        <i class="bi bi-hand-thumbs-up text-blue-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">24.5K</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 12% vs last month</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Followers</span>
+                        <i class="bi bi-people text-purple-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">12.8K</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 8% vs last month</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Posts</span>
+                        <i class="bi bi-grid text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">156</h3>
+                    <p class="text-red-500 text-sm"><i class="bi bi-arrow-down"></i> 3% vs last month</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500">Engagement Rate</span>
+                        <i class="bi bi-graph-up text-green-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">5.2%</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 1.5% vs last month</p>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Engagement Over Time</h3>
+                    <canvas id="engagementChart"></canvas>
+                </div>
+                <div class="bg-white p-4 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Post Performance</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Posts Table -->
+            <div class="bg-white rounded-lg border">
+                <div class="p-4 border-b">
+                    <h3 class="text-lg font-semibold">Recent Posts</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3">Post</th>
+                                <th class="px-6 py-3">Type</th>
+                                <th class="px-6 py-3">Likes</th>
+                                <th class="px-6 py-3">Comments</th>
+                                <th class="px-6 py-3">Shares</th>
+                                <th class="px-6 py-3">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="postsTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Top Performing Posts Table -->
+            <div class="bg-white rounded-lg border mt-6">
+                <div class="p-4 border-b">
+                    <h3 class="text-lg font-semibold">Top Performing Posts</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3">Post</th>
+                                <th class="px-6 py-3">Type</th>
+                                <th class="px-6 py-3">Likes</th>
+                                <th class="px-6 py-3">Comments</th>
+                                <th class="px-6 py-3">Shares</th>
+                                <th class="px-6 py-3">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topPostsTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize charts
+        const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+
+        // Sample data for engagement chart
+        new Chart(engagementCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Engagement',
+                    data: [12000, 15000, 18000, 16000, 22000, 24500],
+                    borderColor: 'rgb(59, 130, 246)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Sample data for performance chart
+        new Chart(performanceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Carousel', 'Static', 'Video', 'Reels'],
+                datasets: [{
+                    label: 'Average Engagement',
+                    data: [2400, 1800, 2100, 3600],
+                    backgroundColor: 'rgb(59, 130, 246)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Sample posts data
+        const posts = [
+            { content: 'Summer Collection Launch', type: 'Carousel', likes: 1200, comments: 89, shares: 45, date: '2023-12-20' },
+            { content: 'Product Showcase', type: 'Static', likes: 850, comments: 56, shares: 23, date: '2023-12-19' },
+            { content: 'Behind the Scenes', type: 'Video', likes: 2300, comments: 167, shares: 89, date: '2023-12-18' },
+            { content: 'Customer Story', type: 'Reels', likes: 3100, comments: 234, shares: 156, date: '2023-12-17' },
+        ];
+
+        // Populate posts table
+        const postsTableBody = document.getElementById('postsTableBody');
+        posts.forEach(post => {
+            const row = document.createElement('tr');
+            row.className = 'bg-white border-b hover:bg-gray-50';
+            row.innerHTML = `
+                <td class="px-6 py-4 font-medium text-gray-900">${post.content}</td>
+                <td class="px-6 py-4">${post.type}</td>
+                <td class="px-6 py-4">${post.likes}</td>
+                <td class="px-6 py-4">${post.comments}</td>
+                <td class="px-6 py-4">${post.shares}</td>
+                <td class="px-6 py-4">${post.date}</td>
+            `;
+            postsTableBody.appendChild(row);
+        });
+
+        // Sample top posts data
+        const topPosts = [
+            { content: 'Holiday Sale', type: 'Video', likes: 4500, comments: 300, shares: 150, date: '2023-12-15' },
+            { content: 'New Product Launch', type: 'Static', likes: 3200, comments: 210, shares: 120, date: '2023-12-14' },
+        ];
+
+        // Populate top posts table
+        const topPostsTableBody = document.getElementById('topPostsTableBody');
+        topPosts.forEach(post => {
+            const row = document.createElement('tr');
+            row.className = 'bg-white border-b hover:bg-gray-50';
+            row.innerHTML = `
+                <td class="px-6 py-4 font-medium text-gray-900">${post.content}</td>
+                <td class="px-6 py-4">${post.type}</td>
+                <td class="px-6 py-4">${post.likes}</td>
+                <td class="px-6 py-4">${post.comments}</td>
+                <td class="px-6 py-4">${post.shares}</td>
+                <td class="px-6 py-4">${post.date}</td>
+            `;
+            topPostsTableBody.appendChild(row);
+        });
+
+        // Function to handle data fetching (mock implementation)
+        async function fetchAnalytics() {
+            try {
+                const response = await fetch('https://r0c8kgwocscg8gsokogwwsw4.zetaverse.one/db', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer g9MuIyT4ubcNeD3Qd8dEk2RqRZh2',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userId: localStorage.getItem('userId') || 'user-' + Date.now(),
+                        appSlug: 'social-analytics',
+                        action: 'read',
+                        table: 'analytics'
+                    })
+                });
+                
+                const data = await response.json();
+                // Update UI with fetched data
+                console.log('Analytics data:', data);
+            } catch (error) {
+                console.error('Error fetching analytics:', error);
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAnalytics();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Profile - Social Media Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="layout.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Sidebar (same as other pages) -->
+        <aside class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+            <!-- ... साइडबार कोड ... -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="p-4 sm:ml-64">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">Manage Social Profiles</h1>
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    <i class="bi bi-plus-lg mr-2"></i>Add New Profile
+                </button>
+            </div>
+
+            <!-- Connected Profiles -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Instagram Profile -->
+                <div class="bg-white p-6 rounded-lg border">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-instagram text-2xl text-pink-600"></i>
+                            <div>
+                                <h3 class="font-semibold">Instagram</h3>
+                                <p class="text-sm text-gray-500">@yourbrand</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">Active</span>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Last Sync</span>
+                            <span>2 hours ago</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Posts</span>
+                            <span>234</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Followers</span>
+                            <span>12.5K</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="flex-1 px-3 py-2 text-sm border rounded-lg hover:bg-gray-50">
+                            Refresh
+                        </button>
+                        <button class="flex-1 px-3 py-2 text-sm border rounded-lg hover:bg-gray-50">
+                            Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Facebook Profile -->
+                <div class="bg-white p-6 rounded-lg border">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-facebook text-2xl text-blue-600"></i>
+                            <div>
+                                <h3 class="font-semibold">Facebook</h3>
+                                <p class="text-sm text-gray-500">Your Brand</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">Active</span>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Last Sync</span>
+                            <span>1 hour ago</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Posts</span>
+                            <span>156</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Followers</span>
+                            <span>8.2K</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="flex-1 px-3 py-2 text-sm border rounded-lg hover:bg-gray-50">
+                            Refresh
+                        </button>
+                        <button class="flex-1 px-3 py-2 text-sm border rounded-lg hover:bg-gray-50">
+                            Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Twitter Profile -->
+                <div class="bg-white p-6 rounded-lg border opacity-60">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-twitter text-2xl text-blue-400"></i>
+                            <div>
+                                <h3 class="font-semibold">Twitter</h3>
+                                <p class="text-sm text-gray-500">Not Connected</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Inactive</span>
+                    </div>
+                    <div class="flex justify-center py-8">
+                        <button class="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50">
+                            Connect Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="mt-8">
+                <h2 class="text-lg font-semibold mb-4">Recent Activity</h2>
+                <div class="bg-white rounded-lg border">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3">Platform</th>
+                                    <th class="px-6 py-3">Action</th>
+                                    <th class="px-6 py-3">Status</th>
+                                    <th class="px-6 py-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4">Instagram</td>
+                                    <td class="px-6 py-4">Data Sync</td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+                                            Completed
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4">2 hours ago</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4">Facebook</td>
+                                    <td class="px-6 py-4">Token Refresh</td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+                                            Completed
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4">1 day ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Twitter</td>
+                                    <td class="px-6 py-4">Connection Attempt</td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">
+                                            Failed
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4">2 days ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Handle refresh buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.trim() === 'Refresh') {
+                button.addEventListener('click', () => {
+                    // Add refresh logic here
+                    alert('Refreshing data...');
+                });
+            }
+        });
+
+        // Handle settings buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.trim() === 'Settings') {
+                button.addEventListener('click', () => {
+                    // Add settings logic here
+                    alert('Opening settings...');
+                });
+            }
+        });
+
+        // Initialize dashboard with current page
+        initDashboard('manage-profile.html');
+    </script>
+</body>
+</html>

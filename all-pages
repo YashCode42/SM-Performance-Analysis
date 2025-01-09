@@ -1,0 +1,5 @@
+<script>
+    // Initialize dashboard with current page
+    initDashboard('current-page.html');
+    addThemeToggle();
+</script> 

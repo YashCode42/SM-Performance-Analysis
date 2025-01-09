@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Data - Social Media Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Sidebar -->
+        <aside class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+            <div class="h-full px-3 py-4 overflow-y-auto bg-white border-r">
+                <h2 class="text-xl font-bold mb-6 px-2">Social Analytics</h2>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                            <i class="bi bi-speedometer2 mr-3"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                            <i class="bi bi-graph-up mr-3"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="audience.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                            <i class="bi bi-people mr-3"></i>
+                            <span>Audience</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="competitors.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                            <i class="bi bi-bar-chart mr-3"></i>
+                            <span>Competitors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                            <img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/50/user-male-circle--v1.png" alt="profile" class="mr-3">
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="export-data.html" class="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100">
+                            <img width="20" height="20" src="https://img.icons8.com/ios/50/settings--v1.png" alt="export" class="mr-3"/>
+                            <span>Export Data</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="manage-profile.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                            <i class="bi bi-person-circle mr-3"></i>
+                            <span>Manage Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="p-4 sm:ml-64">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">Export Data</h1>
+            </div>
+
+            <!-- Export Options -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Date Range Selection -->
+                <div class="bg-white p-6 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Select Date Range</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">From</label>
+                            <input type="date" class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">To</label>
+                            <input type="date" class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Selection -->
+                <div class="bg-white p-6 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Select Data to Export</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded" checked>
+                            <span class="ml-2">Engagement Analytics</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded" checked>
+                            <span class="ml-2">Audience Demographics</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded" checked>
+                            <span class="ml-2">Post Performance</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded">
+                            <span class="ml-2">Competitor Analysis</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Format -->
+            <div class="bg-white p-6 rounded-lg border mt-6">
+                <h3 class="text-lg font-semibold mb-4">Export Format</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button class="flex items-center justify-center gap-2 p-4 border rounded-lg hover:bg-gray-50">
+                        <i class="bi bi-file-earmark-excel text-green-600 text-xl"></i>
+                        <span>Excel (.xlsx)</span>
+                    </button>
+                    <button class="flex items-center justify-center gap-2 p-4 border rounded-lg hover:bg-gray-50">
+                        <i class="bi bi-file-earmark-text text-gray-600 text-xl"></i>
+                        <span>CSV (.csv)</span>
+                    </button>
+                    <button class="flex items-center justify-center gap-2 p-4 border rounded-lg hover:bg-gray-50">
+                        <i class="bi bi-file-earmark-pdf text-red-600 text-xl"></i>
+                        <span>PDF (.pdf)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Schedule Export -->
+            <div class="bg-white p-6 rounded-lg border mt-6">
+                <h3 class="text-lg font-semibold mb-4">Schedule Regular Export</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Frequency</label>
+                        <select class="w-full px-3 py-2 border rounded-lg">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Reports To</label>
+                        <input type="email" class="w-full px-3 py-2 border rounded-lg" placeholder="Enter email address">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Button -->
+            <div class="mt-6 flex justify-end">
+                <button class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    <i class="bi bi-download mr-2"></i>Export Data
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Handle export button click
+        document.querySelector('button:last-child').addEventListener('click', () => {
+            // Add your export logic here
+            alert('Exporting data...');
+        });
+
+        // Handle format selection
+        document.querySelectorAll('.grid button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active state from all buttons
+                document.querySelectorAll('.grid button').forEach(b => 
+                    b.classList.remove('bg-gray-100', 'border-blue-600'));
+                // Add active state to clicked button
+                button.classList.add('bg-gray-100', 'border-blue-600');
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Social Media Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-white">
+    <div class="min-h-screen">
+        <!-- Sidebar (समान सभी पेजों में) -->
+        <aside class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="h-full px-3 py-4 overflow-y-auto bg-white border-r dark:bg-gray-800 dark:border-gray-700">
+                <h2 class="text-xl font-bold mb-6 px-2">Social Analytics</h2>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            <i class="bi bi-speedometer2 mr-3"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics.html" class="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white">
+                            <i class="bi bi-graph-up mr-3"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="audience.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            <i class="bi bi-people mr-3"></i>
+                            <span>Audience</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="competitors.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            <i class="bi bi-bar-chart mr-3"></i>
+                            <span>Competitors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            <img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/50/user-male-circle--v1.png" alt="profile" class="mr-3">
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="export-data.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            <img width="20" height="20" src="https://img.icons8.com/ios/50/settings--v1.png" alt="export" class="mr-3"/>
+                            <span>Export Data</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="manage-profile.html" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            <i class="bi bi-person-circle mr-3"></i>
+                            <span>Manage Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- मुख्य कंटेंट -->
+        <main class="p-4 sm:ml-64">
+            <!-- हेडर -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">Detailed Analytics</h1>
+                <div class="flex gap-2">
+                    <select class="px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                        <option>Last 3 Months</option>
+                        <option>Last Year</option>
+                    </select>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        <i class="bi bi-download mr-2"></i>Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- मेट्रिक्स ग्रिड -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white p-4 rounded-lg border dark:bg-gray-800 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500 dark:text-gray-400">Engagement Rate</span>
+                        <i class="bi bi-graph-up text-blue-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">5.2%</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 0.8% vs last period</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border dark:bg-gray-800 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500 dark:text-gray-400">Reach</span>
+                        <i class="bi bi-broadcast text-purple-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">45.2K</h3>
+                    <p class="text-red-500 text-sm"><i class="bi bi-arrow-down"></i> 2.1% vs last period</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border dark:bg-gray-800 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500 dark:text-gray-400">Impressions</span>
+                        <i class="bi bi-eye text-green-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">98.1K</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 3.2% vs last period</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg border dark:bg-gray-800 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-500 dark:text-gray-400">Profile Visits</span>
+                        <i class="bi bi-person text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">12.3K</h3>
+                    <p class="text-green-500 text-sm"><i class="bi bi-arrow-up"></i> 1.2% vs last period</p>
+                </div>
+            </div>
+
+            <!-- चार्ट्स -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border dark:bg-gray-800 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4">Engagement Over Time</h3>
+                    <canvas id="engagementChart"></canvas>
+                </div>
+                <div class="bg-white p-4 rounded-lg border dark:bg-gray-800 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4">Content Performance</h3>
+                    <canvas id="contentChart"></canvas>
+                </div>
+            </div>
+
+            <!-- टेबल -->
+            <div class="bg-white rounded-lg border dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-4 border-b dark:border-gray-700">
+                    <h3 class="text-lg font-semibold">Post Performance</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-gray-50 dark:bg-gray-700">
+                            <tr>
+                                <th class="px-6 py-3">Post</th>
+                                <th class="px-6 py-3">Type</th>
+                                <th class="px-6 py-3">Reach</th>
+                                <th class="px-6 py-3">Engagement</th>
+                                <th class="px-6 py-3">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="postsTableBody">
+                            <!-- डायनामिक डेटा यहाँ आएगा -->
+                             
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- चार्ट्स के लिए स्क्रिप्ट -->
+    <script>
+        // एंगेजमेंट चार्ट
+        const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+        new Chart(engagementCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Engagement',
+                    data: [1200, 1900, 1500, 2100, 1800, 2300, 2000],
+                    borderColor: 'rgb(59, 130, 246)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // कंटेंट परफॉर्मेंस चार्ट
+        const contentCtx = document.getElementById('contentChart').getContext('2d');
+        new Chart(contentCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Photos', 'Videos', 'Carousels', 'Reels'],
+                datasets: [{
+                    label: 'Average Engagement',
+                    data: [2400, 1800, 3200, 2800],
+                    backgroundColor: 'rgb(59, 130, 246)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // टेबल डेटा पॉपुलेट करें
+        const posts = [
+            { content: 'Product Launch', type: 'Video', reach: '12.5K', engagement: '8.2%', date: '2023-12-20' },
+            { content: 'Behind the Scenes', type: 'Carousel', reach: '10.1K', engagement: '6.5%', date: '2023-12-19' },
+            { content: 'Customer Story', type: 'Photo', reach: '8.8K', engagement: '5.9%', date: '2023-12-18' },
+            { content: 'Tips & Tricks', type: 'Reel', reach: '15.2K', engagement: '9.1%', date: '2023-12-17' },
+        ];
+
+        const postsTableBody = document.getElementById('postsTableBody');
+        posts.forEach(post => {
+            const row = document.createElement('tr');
+            row.className = 'border-b hover:bg-gray-50 dark:hover:bg-gray-700';
+            row.innerHTML = `
+                <td class="px-6 py-4 font-medium">${post.content}</td>
+                <td class="px-6 py-4">${post.type}</td>
+                <td class="px-6 py-4">${post.reach}</td>
+                <td class="px-6 py-4">${post.engagement}</td>
+                <td class="px-6 py-4">${post.date}</td>
+            `;
+            postsTableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

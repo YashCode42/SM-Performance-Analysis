@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audience Insights - Social Media Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="layout.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Sidebar (वही जो अन्य पेजों में है) -->
+        <aside class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+            <!-- ... साइडबार कोड ... -->
+        </aside>
+
+        <!-- मुख्य कंटेंट -->
+        <main class="p-4 sm:ml-64">
+            <!-- हेडर -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">Audience Insights</h1>
+                <div class="flex gap-2">
+                    <select class="px-4 py-2 border rounded-lg">
+                        <option>Last 30 Days</option>
+                        <option>Last 3 Months</option>
+                        <option>Last Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- डेमोग्राफिक्स कार्ड्स -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <!-- एज ग्रुप्स -->
+                <div class="bg-white p-4 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Age Distribution</h3>
+                    <canvas id="ageChart"></canvas>
+                </div>
+                
+                <!-- जेंडर डिस्ट्रीब्यूशन -->
+                <div class="bg-white p-4 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Gender Distribution</h3>
+                    <canvas id="genderChart"></canvas>
+                </div>
+                
+                <!-- लोकेशन -->
+                <div class="bg-white p-4 rounded-lg border">
+                    <h3 class="text-lg font-semibold mb-4">Top Locations</h3>
+                    <canvas id="locationChart"></canvas>
+                </div>
+            </div>
+
+            <!-- एक्टिविटी पैटर्न्स -->
+            <div class="bg-white p-4 rounded-lg border mb-6">
+                <h3 class="text-lg font-semibold mb-4">Activity Patterns</h3>
+                <canvas id="activityChart"></canvas>
+            </div>
+
+            <!-- इंटरेस्ट्स -->
+            <div class="bg-white p-4 rounded-lg border">
+                <h3 class="text-lg font-semibold mb-4">Audience Interests</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="p-3 border rounded-lg">
+                        <div class="text-lg font-bold">Technology</div>
+                        <div class="text-gray-500">45%</div>
+                    </div>
+                    <div class="p-3 border rounded-lg">
+                        <div class="text-lg font-bold">Fashion</div>
+                        <div class="text-gray-500">38%</div>
+                    </div>
+                    <div class="p-3 border rounded-lg">
+                        <div class="text-lg font-bold">Travel</div>
+                        <div class="text-gray-500">35%</div>
+                    </div>
+                    <div class="p-3 border rounded-lg">
+                        <div class="text-lg font-bold">Food</div>
+                        <div class="text-gray-500">32%</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // एज डिस्ट्रीब्यूशन चार्ट
+        const ageCtx = document.getElementById('ageChart').getContext('2d');
+        new Chart(ageCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['13-17', '18-24', '25-34', '35-44', '45+'],
+                datasets: [{
+                    data: [5, 30, 40, 15, 10],
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#4BC0C0',
+                        '#9966FF'
+                    ]
+                }]
+            }
+        });
+
+        // जेंडर डिस्ट्रीब्यूशन चार्ट
+        const genderCtx = document.getElementById('genderChart').getContext('2d');
+        new Chart(genderCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Female', 'Male', 'Other'],
+                datasets: [{
+                    data: [55, 42, 3],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+                }]
+            }
+        });
+
+        // लोकेशन चार्ट
+        const locationCtx = document.getElementById('locationChart').getContext('2d');
+        new Chart(locationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['USA', 'India', 'UK', 'Canada', 'Australia'],
+                datasets: [{
+                    label: 'Followers',
+                    data: [30, 25, 15, 10, 8],
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                }]
+            },
+            options: {
+                indexAxis: 'y'
+            }
+        });
+
+        // एक्टिविटी पैटर्न चार्ट
+        const activityCtx = document.getElementById('activityChart').getContext('2d');
+        new Chart(activityCtx, {
+            type: 'line',
+            data: {
+                labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00'],
+                datasets: [{
+                    label: 'Online Users',
+                    data: [1000, 500, 200, 1500, 2500, 2000, 3000, 2500],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.4
+                }]
+            }
+        });
+
+        // Initialize dashboard with current page
+        initDashboard('audience.html');
+    </script>
+</body>
+</html>
